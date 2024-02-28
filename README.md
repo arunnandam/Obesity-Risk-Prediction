@@ -14,12 +14,14 @@ Setting Up Environemnt
     conda activate venv/
 
 Steps to Initialize Git Repo:
-    - git init
-    - git add README.md
-    - git commit -m "first commit"
-    - git branch -M main
-    - git remote add origin https://github.com/arunnandam/Obesity-Risk-Prediction.git
-    - git push -u origin main
+    ```
+    git init
+    git add README.md
+    git commit -m "first commit"
+    git branch -M main
+    git remote add origin https://github.com/arunnandam/Obesity-Risk-Prediction.git
+    git push -u origin main
+    ```
 
 Create setup.py file:
 - With the help of setup.py, we can build our entire Application as a package and deploy it in PyPi.
@@ -36,4 +38,8 @@ pip install -r requirements.txt
 
 Step 2: Creating Project Structure, Logging and Exceptions
 
-1. Create <i>components</i> folder in src.
+1. Create <i>components</i> folder in src. components are like all the modules used in the project such as Data Ingestion, Data Transformation, Model Training, 
+2. Create <i>pipeline</i> folder in src. pipelines includes the training and prediction pipeline.
+3. Create logger.py to record all the logs
+4. Create exception.py to handle all exceptions.
+5. Create utils.py to save the functionalities written in a common way. Example, to save the model in the cloud.
