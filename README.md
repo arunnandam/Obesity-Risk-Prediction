@@ -14,9 +14,22 @@ Setting Up Environemnt
     conda activate venv/
 
 Steps to Initialize Git Repo:
-    git init
-    git add README.md
-    git commit -m "first commit"
-    git branch -M main
-    git remote add origin https://github.com/arunnandam/Obesity-Risk-Prediction.git
-    git push -u origin main
+    - git init
+    - git add README.md
+    - git commit -m "first commit"
+    - git branch -M main
+    - git remote add origin https://github.com/arunnandam/Obesity-Risk-Prediction.git
+    - git push -u origin main
+
+Create setup.py file:
+- With the help of setup.py, we can build our entire Application as a package and deploy it in PyPi.
+- Create __init__.py in src folder and entire application is built in that folder. find_packages() will look for all the packages required for the project in __init__.py. Entire src is considered as package and used in all files.
+
+Create requirements.txt file:
+- requirements.txt has all the packages required to run the application.
+- While running requirements.txt, we want to run the setup.py also, for this we need to add <strong>e .</strong> at the end and handle it in setup.py to avoid error in install_requires.
+```
+pip install -r requirements.txt
+```
+
+- At the end [text](Obesity_Risk_Prediction.egg-info) will be created.

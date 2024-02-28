@@ -1,0 +1,8 @@
+README.md
+setup.py
+Obesity_Risk_Prediction.egg-info/PKG-INFO
+Obesity_Risk_Prediction.egg-info/SOURCES.txt
+Obesity_Risk_Prediction.egg-info/dependency_links.txt
+Obesity_Risk_Prediction.egg-info/requires.txt
+Obesity_Risk_Prediction.egg-info/top_level.txt
+src/__init__.py

@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: Obesity-Risk-Prediction
+Version: 0.0.1
+Author: Arun Nandam
+Author-email: arunkumar.nandam@gmail.com
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: seaborn
+Requires-Dist: matplotlib
