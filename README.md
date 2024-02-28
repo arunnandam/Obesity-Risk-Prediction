@@ -1,7 +1,7 @@
-## End to End Machine Learning Project
-Task 1:
+## End to End Machine Learning Project for Obesity Risk Prediction
 
-GitHub and Code Set Up
+Step 1: GitHub and Code Set Up
+
 1. Setup the GitHub Repository
     a. new Environment
     b. setup.py
@@ -33,3 +33,7 @@ pip install -r requirements.txt
 ```
 
 - At the end [text](Obesity_Risk_Prediction.egg-info) will be created.
+
+Step 2: Creating Project Structure, Logging and Exceptions
+
+1. Create <i>components</i> folder in src.
