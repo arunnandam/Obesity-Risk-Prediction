@@ -52,3 +52,12 @@ Step 3: Project Problem Statement, EDA and Model Building
 4. Tested across different clsssification models and tested the metrics.
 5. Cross Validation and HyperParameter Tuning.
 6. Plotting Predictions Distribution.
+
+Step 4: Creating Data Ingestion 
+
+- The purpose of data ingestion is to create ingestion class that reads our data from given source and return the paths. We can also create artifacts folder, so that they will be stored.
+
+1. Create DataIngestionConfig and DataIngestion classes 
+2. DataIngestionConfig - a dataclass that defines the paths of the train, test, raw_data
+3. DataIngestion -  To initiate the data ingestion process
+4. Logging and exceptions are loaded to log the info and track the custom exceptions.
