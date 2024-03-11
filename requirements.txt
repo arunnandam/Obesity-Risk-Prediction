@@ -2,4 +2,10 @@ pandas
 numpy
 seaborn
 matplotlib
--e .
+scikit-learn
+xgboost
+lightgbm
+catboost
+#-e .
+# While adding new packages, comment out -e . 
+# Because everytime it creates our application as new package
