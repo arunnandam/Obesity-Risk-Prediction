@@ -61,3 +61,13 @@ Step 4: Creating Data Ingestion
 2. DataIngestionConfig - a dataclass that defines the paths of the train, test, raw_data
 3. DataIngestion -  To initiate the data ingestion process
 4. Logging and exceptions are loaded to log the info and track the custom exceptions.
+
+Step 5: Creating Data Transformation.
+
+- The purpose of Data Transfromation is to transform all the numerical and categorical columns and save the pickle file.
+
+1. Create DataTransformationConfig and DataTransformation classes.
+2. Create DataTransformer object by specifying the numerical and categorical pipelines. Finally create ColumnTransfromer and return it.
+3. Initiate Data Transformation and fit the pipelines for both train and test data.
+4. return the preprocessed arrays and save the preprocessor object.
+5. create utils.py to write all the usable code in the project

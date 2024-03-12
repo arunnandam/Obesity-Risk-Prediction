@@ -6,6 +6,7 @@ scikit-learn
 xgboost
 lightgbm
 catboost
+dill
 #-e .
 # While adding new packages, comment out -e . 
 # Because everytime it creates our application as new package
