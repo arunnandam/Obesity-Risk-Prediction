@@ -71,3 +71,11 @@ Step 5: Creating Data Transformation.
 3. Initiate Data Transformation and fit the pipelines for both train and test data.
 4. return the preprocessed arrays and save the preprocessor object.
 5. create utils.py to write all the usable code in the project
+
+Step 6: Creating Model Trainer
+
+- The purpose of Model Trainer is to train the data across models and return the model evaluation report
+
+1. Create ModelTrainer and ModelTrainerConfig classes.
+2. split the train and test data. Create a function in utils that will trains the model and return the dict of kpis
+3. return the model_report and export it.

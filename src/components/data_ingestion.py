@@ -8,6 +8,8 @@ from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 from src.components.data_transformation import DataTransformation
 from src.components.data_transformation import DataTransformationConfig
+from src.components.model_trainer import ModelTrainer
+from src.components.model_trainer import ModelTrainerConfig
 
 # Paths for all data class[ raw data, transformed data ]
 @dataclass
@@ -66,6 +68,13 @@ if __name__ == "__main__":
 
     data_transformation = DataTransformation()
     train_arr, test_arr, mapping, _ = data_transformation.initiate_data_transformation(train_df, test_df)
+
+    model_trainer = ModelTrainer()
+    model_report = model_trainer.initiate_model_trainer(train_arr, test_arr, mapping, _)
+
+    model_report_df = pd.DataFrame(model_report).T
+    model_report_df.columns = ['accuracy', 'macro_precision', 'macro_recall', 'macro_f1', 'weighted_precision', 'weighted_recall', 'weighted_f1']
+    model_report_df.to_csv('model_evaluation_report.csv', header=True, index=False)
 
 
 
