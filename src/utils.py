@@ -7,6 +7,8 @@ from src.exception import CustomException
 import dill
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import precision_score, recall_score, f1_score
+from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
+CV = False # Set it to true in case of HP and CV
 
 
 
@@ -46,13 +48,27 @@ def kpis(y_true, y_pred):
 
     return [accuracy, macro_precision, macro_recall, macro_f1, weighted_precision, weighted_recall, weighted_f1] 
 
-def evaluate_model(X_train, y_train, X_test, y_test, models):
+def evaluate_model(X_train, y_train, X_test, y_test, models, params):
     model_names =list(models.keys())
     model_func = list(models.values())
     final_metrics = {}
     
     for i in range(len(model_names)):
         model = model_func[i]
+        param = params[model_names[i]]
+
+        logging.info(f"model:{model} parameters: { param }")
+
+        if CV:
+            gridSearch = GridSearchCV(model, param, cv=3)
+            gridSearch.fit(X_train, y_train)
+
+            #Selecting the best parameters
+            best_params = gridSearch.best_params_
+            logging.info(f"model:{model_names[i]} params:{best_params}")
+            model.set_params(**best_params)
+        else:
+            model.set_params(**param)
     
         #Training the model
         model.fit(X_train, y_train)

@@ -74,7 +74,7 @@ if __name__ == "__main__":
 
     model_report_df = pd.DataFrame(model_report).T
     model_report_df.columns = ['accuracy', 'macro_precision', 'macro_recall', 'macro_f1', 'weighted_precision', 'weighted_recall', 'weighted_f1']
-    model_report_df.to_csv('model_evaluation_report.csv', header=True, index=False)
+    model_report_df.to_csv('model_evaluation_report_tuned.csv', header=True, index=False)
 
 
 
