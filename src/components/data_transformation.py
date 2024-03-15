@@ -13,7 +13,7 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler, LabelEncoder
 
 from src.logger import logging
 from src.exception import CustomException
-from src.utils import save_object
+from src.utils import save_object, target_mapping
 
 class DataTransformationConfig:
     preprocessor_obj_file_path = os.path.join('artifacts','preprocessor.pkl')
@@ -114,7 +114,10 @@ class DataTransformation:
             train_arr = np.c_[input_features_traindf_arr, target_feature_traindf_arr]
             test_arr = np.c_[input_features_testdf_arr, target_feature_testdf_arr]
             
-
+            # Test preprocessing object before saving
+            # df_x = pd.DataFrame([['Male',21.0,1.9,116.0,'yes','yes',3.0 ,3.0 ,'Sometimes','no',3.0, 'no',3.0,3.0,'no','Bike']], columns=input_features_traindf.columns)
+            # da = preprocessor_obj.transform(df_x)
+            # logging.info(f"da transform:{da}")
 
             logging.info("Saving preprocessing object")
 

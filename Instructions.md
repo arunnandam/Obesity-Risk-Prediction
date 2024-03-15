@@ -80,3 +80,11 @@ Step 6: Creating Model Trainer and Hyper parameter Tuning
 2. split the train and test data. Create a function in utils that will trains the model and return the dict of kpis
 3. return the model_report and export it.
 4. Do the Hyper parameter tuning for the model.
+
+Step 7: Creating Prediction pipeline
+- In this step, I will create the prediction pipeline, the flask app and home.html
+
+1. The flask app accepts the input from the user and all the values are sent to predicton pipeline
+2. The web page <italic>home.html</italic> takes values and extracted in <italic>app.py</italic> using request.get.values()
+3. The data is then scaled and we will get the prediction from the stored pickle files.
+4. The prediction is sent back to the form after mapping.

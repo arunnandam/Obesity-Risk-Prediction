@@ -8,11 +8,15 @@ import dill
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import precision_score, recall_score, f1_score
 from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
+import pickle
 CV = False # Set it to true in case of HP and CV
 
 
 
-
+cols = ['Gender','Age','Height','Weight','family_history_with_overweight','FAVC','FCVC','NCP','CAEC','SMOKE','CH2O','SCC','FAF','TUE','CALC','MTRANS']
+num_cols = ['Age','Height','Weight','FCVC','NCP','CH2O','FAF','TUE']
+target_mapping = {}
+    
 def save_object(file_path, obj):
     '''
     saving the pickle files
@@ -83,3 +87,11 @@ def evaluate_model(X_train, y_train, X_test, y_test, models, params):
         logging.info(metrics)
         
     return final_metrics
+
+def load_object(file_path):
+    try:
+        with open(file_path, "rb") as file_obj:
+            return dill.load(file_obj)
+
+    except Exception as e:
+        raise CustomException(e, sys)

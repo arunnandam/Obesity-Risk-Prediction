@@ -9,6 +9,7 @@ import pandas as pd
 import numpy as np
 import pandas as pd
 from dataclasses import dataclass
+import pickle
 
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
 from sklearn.tree import DecisionTreeClassifier
@@ -23,7 +24,7 @@ from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
 
 from src.exception import CustomException
 from src.logger import logging
-from src.utils import save_object, evaluate_model
+from src.utils import save_object, evaluate_model, load_object
 all_parameters = False #Set it to True if you want to run all hyperparameters.
 # Also uncomment models
 
@@ -32,7 +33,7 @@ class ModelTrainerConfig:
     '''
     Defining the model pickle path
     '''
-    trained_model_file_path : str=os.path.join('artifacts','model.pkl')
+    trained_model_file_path = os.path.join('artifacts','model.pkl')
 
 class ModelTrainer:
     def __init__(self):
@@ -118,6 +119,14 @@ class ModelTrainer:
             
             logging.info("Model Evalaution is Completed.")
             logging.info(f"model metrics : {model_report}")
+
+            # code differs for cross validation
+            model = models['XGBoost']
+
+            save_object(
+                file_path = self.model_trainer_config.trained_model_file_path,
+                obj = model
+            )
 
             return model_report  
         

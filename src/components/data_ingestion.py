@@ -10,6 +10,7 @@ from src.components.data_transformation import DataTransformation
 from src.components.data_transformation import DataTransformationConfig
 from src.components.model_trainer import ModelTrainer
 from src.components.model_trainer import ModelTrainerConfig
+from src.utils import save_object
 
 # Paths for all data class[ raw data, transformed data ]
 @dataclass
@@ -32,8 +33,8 @@ class DataIngestion:
 
         logging.info("Entered the data ingestion method")
         try:
-            traindf = pd.read_csv('notebook/data/train.csv')
-            testdf = pd.read_csv('notebook/data/test.csv')
+            traindf = pd.read_csv('notebook/data/train.csv').drop('id', axis=1)
+            testdf = pd.read_csv('notebook/data/test.csv').drop('id', axis=1)
             logging.info('Read both test and train data.')
 
             # In this dataset, test data has no target variable, so we train and test our entire model on traindf
@@ -68,6 +69,9 @@ if __name__ == "__main__":
 
     data_transformation = DataTransformation()
     train_arr, test_arr, mapping, _ = data_transformation.initiate_data_transformation(train_df, test_df)
+
+    save_object(file_path="artifacts/mapping.pkl", obj=mapping)
+
 
     model_trainer = ModelTrainer()
     model_report = model_trainer.initiate_model_trainer(train_arr, test_arr, mapping, _)
