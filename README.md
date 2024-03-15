@@ -12,11 +12,7 @@ This project focuses on the classification of obesity risk of individuals and cl
 The objective is to effectively identify and categorize obesity types, enabling users to assess their risk of cardiovascular disease. This repository encompasses the end-to-end development of a project that adheres to industry standards
 
 ## Dataset
-<<<<<<< Updated upstream
-The data has features describing the user's characteristics, physical condition, and activities that he perform in a daily basis.
-=======
-The data has the features describing the user characteristics, physical condition and activities that he perform in daily basis.
->>>>>>> Stashed changes
+The data has the features describing the user characteristics, physical condition and activities that he perform on daily basis.
 Link - <a href="https://www.kaggle.com/competitions/playground-series-s4e2">Dataset</a>
 
 Features:
@@ -58,7 +54,7 @@ Requirements:
 
 Project Structure:
 1. data_ingestion.py
-    - The data is extracted from the source and splitted into train and test data.
+    - The data is extracted from the source and split into train and test data.
     - The train and test data is stored on <italic>artifacts</italic> folder
 
 2. data_transformation.py
@@ -90,5 +86,3 @@ Files Description:
 - model_evaluation_report_tuned.csv - Results of the best model.
 
 Note: The complete implementation details is found at <a href="https://github.com/arunnandam/Obesity-Risk-Prediction/blob/main/Instructions.md">Instructions.md</a>
-
->>>>>>> Stashed changes
